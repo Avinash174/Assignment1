@@ -1,24 +1,26 @@
-import 'package:assignment/pages/first_page/first_page.dart';
+import 'package:assignment/pages/input_page/input_page.dart';
+import 'package:assignment/pages/second_page/second_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
 
-  // This widget is the root of your application.
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      home: const FirstPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => InputScreen(),
+        '/display': (context) => DisplayScreen(),
+      },
     );
   }
 }
